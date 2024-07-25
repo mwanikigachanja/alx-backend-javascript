@@ -1,26 +1,15 @@
-#!/usr/bin/env node
-
-/* eslint-disable consistent-return */
 const Utils = {
-  calculateNumber: (type, numA, numB) => {
-    try {
-      const roundedA = Math.round(numA);
-      const roundedB = Math.round(numB);
-      if (type === 'SUM') {
-        return roundedA + roundedB;
-      } if (type === 'MULTIPLY') {
-        return roundedA * roundedB;
-      } if (type === 'SUBTRACT') {
-        return roundedA - roundedB;
-      } if (type === 'DIVIDE') {
-        if (roundedB === 0) {
-          return 'Error';
-        }
-        return (roundedA / roundedB);
-      }
-    } catch (err) {
-      return (err);
+  calculateNumber(type, a, b) {
+    if (type === 'SUM') {
+      return Math.round(a) + Math.round(b);
     }
+    if (type === 'SUBTRACT') {
+      return Math.round(a) - Math.round(b);
+    }
+    if (type === 'DIVIDE') {
+      return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
+    }
+    return 0;
   },
 };
 
